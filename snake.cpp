@@ -48,6 +48,10 @@ bool Snake::step() {
     return isAlive();
 }
 
+std::vector<std::array<int,2>> *Snake::snek() {
+    return &body;
+}
+
 void Snake::eat(int value) {
     foodEaten += value;
 }
