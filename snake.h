@@ -10,6 +10,7 @@ class Snake {
 public:
     Snake(int height, int width);
     bool step();
+    std::vector<std::array<int, 2>> *snek();
     void up();
     void down();
     void left();

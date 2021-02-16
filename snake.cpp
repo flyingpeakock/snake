@@ -58,9 +58,9 @@ void Snake::eat() {
 
 bool Snake::isAlive() {
     // Only needs to check if head collides as rest of body follows
-    auto head = body[0;]
-    for (auto seg : body) {
-        if (seg == body)
+    auto head = body[0];
+    for (auto i = 1; i < body.size(); i++) {
+        if (body[i] == head)
             return false;
     }
     return true;
