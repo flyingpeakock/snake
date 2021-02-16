@@ -70,6 +70,10 @@ bool Snake::isAlive() {
     return true;
 }
 
+std::array<int, 2> Snake::head() {
+    return body[0];
+}
+
 void Snake::up() {
     if (Direction::down == dir)
         return;

@@ -11,6 +11,7 @@ public:
     Snake(int height, int width);
     bool step();
     std::vector<std::array<int, 2>> *snek();
+    std::array<int, 2> head();
     void up();
     void down();
     void left();
