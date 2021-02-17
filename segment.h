@@ -11,8 +11,6 @@ class Segment {
     ~Segment();
     
     int row, col;
-    //Segment* getPrev(); // returns null if head
-    //Segment* getNext(); // returns null if tail
     void move(); // call on tail
     Segment* grow(); // returns a pointer to the last segment
     
