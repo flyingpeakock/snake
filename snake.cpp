@@ -3,8 +3,10 @@
 Snake::Snake() {
     head = new Segment(0, 0);
     tail = head;
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 3; i++) {
         tail = tail->grow();
+        step();
+    }
 }
 
 Snake::~Snake() {
@@ -38,12 +40,16 @@ void Snake::step() {
     tail->move();
 }
 
-std::vector<std::array<int, 2>> Snake::getPos() {
-    std::vector<std::array<int, 2>> ret;
-    Segment *seg = head;
+bool Snake::isAlive() {
+    auto seg = head->getNext();
     do {
-        ret.emplace_back(std::array<int, 2>({{seg->row, seg->col}}));
+        if (seg->col == head->col && seg->row == head->row)
+            return false;
         seg = seg->getNext();
     } while (seg);
-    return ret;
+    return true;
+}
+
+Segment *Snake::getHead() {
+    return head;
 }

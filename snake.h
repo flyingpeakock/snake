@@ -11,8 +11,10 @@ class Snake {
     void eat(); // Calls grow on tail
     bool turn(Direction dir);
     void step();
+    
+    bool isAlive();
 
-    std::vector<std::array<int, 2>> getPos();
+    Segment* getHead();
 
     private:
     Segment *head;
