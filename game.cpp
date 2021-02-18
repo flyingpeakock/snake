@@ -13,6 +13,12 @@ Game::Game(size_t wait) {
     keypad(stdscr, true);
     getmaxyx(stdscr, rows, cols);
     delay = wait;
+    
+    if (has_colors()) {
+        use_default_colors();
+        start_color();
+        init_pair(1, COLOR_GREEN, -1);
+    }
 }
 
 Game::~Game() {
@@ -77,10 +83,12 @@ void Game::print() {
         seg->col = cols/2 - 1;
     if (seg->col >= cols/2)
         seg->col = 0;
+    attron(COLOR_PAIR(1));
     while(seg) {
         mvprintw(seg->row, seg->col*2, "██");
         seg = seg->getNext();
     }
+    attroff(COLOR_PAIR(1));
     move(foodRow, foodCol);
     refresh();
 }
