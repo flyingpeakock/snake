@@ -1,5 +1,7 @@
 #pragma once
 
+// basically a specialized doubly linked list
+
 enum class Direction {
     up, down, left, right
 };
