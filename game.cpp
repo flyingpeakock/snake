@@ -63,21 +63,21 @@ void Game::play() {
 
 void Game::print() {
     clear();
-    mvprintw(foodRow, foodCol, "∙");
+    //mvprintw(foodRow, foodCol, "∙");
     auto seg = snake.getHead();
     if (seg->row < 0)
-        seg->row = rows;
-    if (seg->row > rows)
+        seg->row = rows - 1;
+    if (seg->row >= rows)
         seg->row = 0;
     if (seg->col < 0)
-        seg->col = cols/2;
-    if (seg->col > cols/2)
+        seg->col = cols/2 - 1;
+    if (seg->col >= cols/2)
         seg->col = 0;
-    do {
+    while(seg) {
         mvprintw(seg->row, seg->col*2, "██");
         seg = seg->getNext();
-    } while (seg);
-    move(rows, cols);
+    }
+    move(foodRow, foodCol);
     refresh();
 }
 
