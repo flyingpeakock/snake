@@ -11,7 +11,6 @@ Game::Game() {
     cbreak();
     noecho();
     keypad(stdscr, true);
-    nodelay(stdscr, true);
     getmaxyx(stdscr, rows, cols);
     delay = 100;
 }
@@ -21,6 +20,7 @@ Game::~Game() {
 }
 
 void Game::play() {
+    nodelay(stdscr, true);
     // placing food first
     placeFood();
     while (snake.isAlive()) {
@@ -52,6 +52,7 @@ void Game::play() {
         }
         print();
         // should eat if has food since will print at 0,0 otherwise
+        // if eat is after step
         if (foodInSnake()) {
             snake.eat();
             placeFood();
@@ -59,6 +60,9 @@ void Game::play() {
         snake.step();
         std::this_thread::sleep_for(std::chrono::milliseconds(delay));
     }
+    mvprintw(rows / 2, cols / 2, "Score: %d", snake.score());
+    nodelay(stdscr, false);
+    getch();
 }
 
 void Game::print() {

@@ -3,6 +3,7 @@
 Snake::Snake() {
     head = new Segment(0, 0);
     tail = head;
+    length = 1;
     for (int i = 0; i < 3; i++) {
         tail = tail->grow();
         step();
@@ -13,8 +14,13 @@ Snake::~Snake() {
     delete head;
 }
 
+int Snake::score() {
+    return length;
+}
+
 void Snake::eat() {
     tail = tail->grow();
+    length++;
 }
 
 bool Snake::turn(Direction dir) {
