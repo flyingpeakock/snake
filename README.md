@@ -7,6 +7,6 @@ Going off the edge wraps around.
 Your score at the end is simply the length of the snake, the starting 
 length of the snake is one.
 
-I have not yet implemented a way to set the 
-speed of the snake. I may or may not implement this when I feel like it.
-
+## Arguments
+You can pass any positive integer to the program to set the time between
+frames in milliseconds. The default value is 100ms.
