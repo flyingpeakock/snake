@@ -5,14 +5,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-Game::Game() {
+Game::Game(size_t wait) {
     setlocale(LC_ALL, "");
     initscr();
     cbreak();
     noecho();
     keypad(stdscr, true);
     getmaxyx(stdscr, rows, cols);
-    delay = 100;
+    delay = wait;
 }
 
 Game::~Game() {

@@ -4,7 +4,7 @@
 
 class Game {
     public:
-    Game();
+    Game(size_t wait);
     ~Game();
     void play();
 
