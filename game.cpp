@@ -77,6 +77,7 @@ void Game::print() {
         mvprintw(seg->row, seg->col*2, "██");
         seg = seg->getNext();
     } while (seg);
+    move(rows, cols);
     refresh();
 }
 
