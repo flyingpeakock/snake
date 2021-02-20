@@ -95,8 +95,8 @@ void Game::print() {
 
 void Game::placeFood() {
     srand(time(NULL));
-    int row = rand() % rows;
-    int col = rand() % cols;
+    int row = rand() % (rows - 1);
+    int col = rand() % (cols - 1);
     foodRow = row;
     foodCol = col;
     if (foodInSnake())
