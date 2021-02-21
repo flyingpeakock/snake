@@ -23,6 +23,7 @@ Game::Game(size_t wait) {
 
 Game::~Game() {
     endwin();
+    printf("Score: %d\n", snake.score());
 }
 
 void Game::play() {
@@ -67,7 +68,6 @@ void Game::play() {
         std::this_thread::sleep_for(std::chrono::milliseconds(delay));
     }
     // mvprintw(rows / 2, cols / 2, "Score: %d", snake.score());
-    printf("Score: %d\n", snake.score());
     nodelay(stdscr, false);
     getch();
 }
