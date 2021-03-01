@@ -10,6 +10,7 @@ class Game {
 
     private:
     size_t delay;
+    size_t seed;
     Snake snake;
     int cols, rows;
     int foodRow, foodCol;

@@ -7,6 +7,7 @@
 
 Game::Game(size_t wait) {
     setlocale(LC_ALL, "");
+    seed = time(NULL);
     initscr();
     cbreak();
     noecho();
@@ -95,7 +96,7 @@ void Game::print() {
 }
 
 void Game::placeFood() {
-    srand(time(NULL));
+    srand(seed++);
     int row = rand() % (rows - 1);
     int col = rand() % (cols - 1);
     foodRow = row;
